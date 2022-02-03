@@ -134,10 +134,6 @@ class _HomePageState extends State<HomePage> {
         );
 
   Widget body() => Container(
-        // width: double.infinity,
-        // height: double.infinity,
-        // padding: EdgeInsets.all(16),
-
         /// il future builder renderizza la mia future(chiamata http)
         /// bisogna passare il tipo di ritorno della future
         child: FutureBuilder<List<MovieModel>>(

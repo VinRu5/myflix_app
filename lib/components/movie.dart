@@ -20,14 +20,30 @@ class Movie extends StatelessWidget {
             fit: BoxFit.cover,
           ),
         ),
-        Expanded(
-          child: ListView(
-            children: [
-              Text(
-                movie.title,
-                style: TextStyle(color: Colors.white),
-              ),
-            ],
+        Padding(
+          padding: EdgeInsets.all(16),
+          child: Center(
+            child: Column(
+              children: [
+                Text(
+                  movie.title,
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                SizedBox(
+                  height: 24,
+                ),
+                Text(
+                  movie.description,
+                  style: TextStyle(
+                    color: Colors.white,
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ],
