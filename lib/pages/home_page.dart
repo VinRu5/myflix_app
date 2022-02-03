@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 
 import 'package:myflix_app/models/movie_model.dart';
+import 'package:myflix_app/pages/movie_details.dart';
 import 'package:myflix_app/repositories/get_movies_data.dart';
 
 class HomePage extends StatefulWidget {
+  static const route = '/';
   const HomePage({Key? key}) : super(key: key);
 
   @override
@@ -140,41 +142,50 @@ class _HomePageState extends State<HomePage> {
                   mainAxisSpacing: 16,
                   childAspectRatio: 0.7,
                 ),
-                itemBuilder: (context, index) => ClipRRect(
-                  borderRadius: BorderRadius.circular(3),
-                  child: Stack(
-                    children: [
-                      Image.network(
-                        snapshot.data![index].imagePath,
-                        height: double.infinity,
-                        width: double.infinity,
-                        fit: BoxFit.cover,
-                        colorBlendMode: BlendMode.darken,
-                        color: Colors.black26,
-                      ),
-                      Positioned(
-                        bottom: 0,
-                        //top: 100,
-                        left: 0,
-                        right: 0,
-                        child: Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Text(
-                            snapshot.data![index].title,
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              shadows: [
-                                BoxShadow(
-                                  blurRadius: 5,
-                                  spreadRadius: 2,
-                                  color: Colors.black12,
-                                )
-                              ],
+                itemBuilder: (context, index) => GestureDetector(
+                  onTap: () {
+                    Navigator.pushNamed(
+                      context,
+                      MovieDetails.route,
+                      arguments: MovieDetailsArgs(movie: snapshot.data![index]),
+                    );
+                  },
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(3),
+                    child: Stack(
+                      children: [
+                        Image.network(
+                          snapshot.data![index].imagePath,
+                          height: double.infinity,
+                          width: double.infinity,
+                          fit: BoxFit.cover,
+                          colorBlendMode: BlendMode.darken,
+                          color: Colors.black26,
+                        ),
+                        Positioned(
+                          bottom: 0,
+                          //top: 100,
+                          left: 0,
+                          right: 0,
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Text(
+                              snapshot.data![index].title,
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                shadows: [
+                                  BoxShadow(
+                                    blurRadius: 5,
+                                    spreadRadius: 2,
+                                    color: Colors.black12,
+                                  )
+                                ],
+                              ),
                             ),
                           ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ),
               );
