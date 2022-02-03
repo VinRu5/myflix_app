@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:myflix_app/components/movie.dart';
 import 'package:myflix_app/models/movie_model.dart';
 
 class MovieDetails extends StatelessWidget {
@@ -12,13 +13,12 @@ class MovieDetails extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: TextButton(
-        onPressed: () {
-          print(args);
-        },
-        child: Text('prova'),
+    return Scaffold(
+      backgroundColor: Colors.black,
+      appBar: AppBar(
+        backgroundColor: Colors.black,
       ),
+      body: Movie(movie: args.movie),
     );
   }
 }

@@ -3,6 +3,7 @@ class MovieModel {
   final String imagePath;
   final String title;
   final String language;
+  final String description;
   // final double vote;
 
   MovieModel({
@@ -10,6 +11,7 @@ class MovieModel {
     required this.imagePath,
     required this.title,
     required this.language,
+    required this.description,
     // required this.vote,
   });
 
@@ -21,9 +23,10 @@ class MovieModel {
           : 'https://image.tmdb.org/t/p/w500${data['poster_path']}',
       title: data['title'],
       language: data['original_language'],
+      description: data['overview'],
       // vote: data['vote_average'],
     );
-    print(mov);
+    //print(mov);
     return mov;
   }
 
