@@ -1,6 +1,7 @@
 # myflix_app
 
 A new Flutter project.
+Progetto per ricreare lapp netflix per prendere dimestichezza con flutter
 
 ## Getting Started
 
